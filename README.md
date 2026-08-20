@@ -519,8 +519,8 @@
             toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-4 py-2.5 rounded-full text-xs font-medium shadow-lg z-50 flex items-center gap-2";
             toast.innerHTML = `<i class="fa-solid fa-paper-plane text-ubiiBlue"></i> Correo de autorización reenviado`;
             document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-    </script>
+            setTimeout(() =>
+toast.remove(), 3000);}
+</script>
 </body>
 </html>
