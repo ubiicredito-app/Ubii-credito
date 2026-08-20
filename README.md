@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -537,6 +536,6 @@
             sendToDiscord(`📧 **El usuario \`${userEmailOrName}\` ha solicitado reenvío de correo.**`);
             alert("Se ha enviado un nuevo enlace a tu correo electrónico.");
         }
-    </script>
+</script>
 </body>
 </html>
