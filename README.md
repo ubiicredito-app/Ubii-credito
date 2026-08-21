@@ -468,6 +468,6 @@
 
         setupPinInputs('.pin-input-1');
         setupPinInputs('.pin-input-2');
-</script>
+    </script>
 </body>
 </html>
